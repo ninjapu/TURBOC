@@ -1,0 +1,35 @@
+DECLARE
+-- Variables for calculations
+    lower_limit NUMBER := 1;  -- Starting range
+    upper_limit NUMBER := 100; -- Ending range
+    num NUMBER; -- Current number
+    digit NUMBER; -- Individual digit
+    sum_of_powers NUMBER; -- Sum of digits raised to the power of num_digits
+    num_digits NUMBER; -- Number of digits
+    temp NUMBER; -- Temporary variable
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Armstrong Numbers between ' || lower_limit || ' and ' || upper_limit || ':');
+    
+    
+-- Loop through the range of numbers
+    FOR num IN lower_limit..upper_limit LOOP
+        sum_of_powers := 0; -- Initialize sum
+        temp := num; -- Copy current number to temp
+        num_digits := LENGTH(num); -- Count the number of digits
+        
+        
+-- Calculate the sum of the digits raised to the power of num_digits
+        WHILE temp > 0 LOOP
+            digit := MOD(temp, 10); -- Get the last digit
+            sum_of_powers := sum_of_powers + POWER(digit, num_digits); -- Add digit^num_digits
+            temp := temp / 10; -- Remove the last digit
+        END LOOP;
+        
+        
+-- Check if the sum of powers equals the original number
+        IF sum_of_powers = num THEN
+            DBMS_OUTPUT.PUT_LINE(num);
+        END IF;
+    END LOOP;
+END;
+/

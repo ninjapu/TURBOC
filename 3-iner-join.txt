@@ -1,0 +1,24 @@
+pratical - 3 
+
+A - Write an SQL query to find the names of customers and their associated orders. Assume you have two tables: Customers and Orders. Customers has columns CustomerID and CustomerName, and Orders has columns OrderID, CustomerID, and OrderDate.
+
+SELECT
+    Customers.CustomerName,
+    Orders.OrderID,
+    Orders.OrderDate
+FROM
+    Customers
+INNER JOIN Orders
+    ON Customers.CustomerID = Orders.CustomerID;
+
+B - Write an SQL query to list all customers and any orders they may have. Include customers who do not have any orders. Use the same Customers and Orders tables.
+
+SELECT
+    Customersu.CustomerName,
+    Orders.OrderID,
+    Orders.OrderDate
+FROM
+    Customersu
+LEFT JOIN Orders
+    ON Customersu.CustomerID = Orders.CustomerID;
+

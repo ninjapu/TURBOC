@@ -1,0 +1,44 @@
+Practical no-4
+Write a PL/SQL program to find the total and average of 4 subjects and display the grade
+
+DECLARE
+    -- Variables to hold marks of four subjects
+    subject1 NUMBER := 85; -- Replace with actual marks
+    subject2 NUMBER := 90; -- Replace with actual marks
+    subject3 NUMBER := 78; -- Replace with actual marks
+    subject4 NUMBER := 88; -- Replace with actual marks
+
+    -- Variables for total, average, and grade
+    total NUMBER;
+    average NUMBER;
+    grade CHAR(1);
+BEGIN
+    -- Calculate total and average
+    total := subject1 + subject2 + subject3 + subject4;
+    average := total / 4;
+
+    -- Determine the grade
+    IF average >= 90 THEN
+        grade := 'A';
+    ELSIF average >= 75 THEN
+        grade := 'B';
+    ELSIF average >= 50 THEN
+        grade := 'C';
+    ELSE
+        grade := 'F';
+    END IF;
+
+    -- Display the results
+    DBMS_OUTPUT.PUT_LINE('Marks:');
+    DBMS_OUTPUT.PUT_LINE('Subject 1: ' || subject1);
+    DBMS_OUTPUT.PUT_LINE('Subject 2: ' || subject2);
+    DBMS_OUTPUT.PUT_LINE('Subject 3: ' || subject3);
+    DBMS_OUTPUT.PUT_LINE('Subject 4: ' || subject4);
+    DBMS_OUTPUT.PUT_LINE('Total Marks: ' || total);
+    DBMS_OUTPUT.PUT_LINE('Average Marks: ' || average);
+    DBMS_OUTPUT.PUT_LINE('Grade: ' || grade);
+END;
+/
+
+
+
